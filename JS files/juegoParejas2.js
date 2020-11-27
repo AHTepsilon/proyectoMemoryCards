@@ -29,6 +29,7 @@ function draw()
 
 function cards()
 {
+    // Square handmade by alejo 
     square(35, 200, 60);
     square(115, 200, 60);
     square(195, 200, 60);
@@ -64,7 +65,7 @@ function counter()
     rect(135, 581, 200, 32);
 
     fill(255);
-    switch(matches)
+    switch(randomOne)
     {
         case 0:
 

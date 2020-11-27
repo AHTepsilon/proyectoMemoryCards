@@ -2,15 +2,39 @@ let img1, img2, img3, img4;
 
 var randomOne; 
 
+let images=[];
+let tarjetas=[];
+
 function preload()
-{
-    img = loadImage('assets/orange.jpg');
+{ let indicador = 0;
+    for (let index = 0; index < 8; index++) {
+        images[index]= loadImage('chino'+indicador+'.png');
+      indicador++;
+        
+    }
+    
 }
 
 function setup() 
 {
     createCanvas(375, 667);
     randomOne = 0;
+
+    let tipos = [0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7];
+    shuffle (tipos,true);
+    let x=25;
+    let y=70;
+    for (let index = 0; index < 16; index++) {
+        tarjetas[index]=new Tarjeta (10+x, 10+y, images, tipos[index]);
+        x+=60; 
+        if (x>=225) {
+            y+=60;
+            x=25;
+            
+        }
+        
+        
+    }
 }
 
 function draw()
@@ -25,8 +49,14 @@ function draw()
     counter();
 
     randomizer();
-}
 
+   for (let index = 0; index < tarjetas.length; index++) {
+      tarjetas[index].pintar();
+
+       
+   }
+}
+/*
 function cards()
 {
     square(35, 200, 60);
@@ -64,7 +94,7 @@ function counter()
     rect(135, 581, 200, 32);
 
     fill(255);
-    switch(matches)
+    switch(randomOne)
     {
         case 0:
 
@@ -563,4 +593,4 @@ function counter()
             
             break;
     }   
-}
+}*/
