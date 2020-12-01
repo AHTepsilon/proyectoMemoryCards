@@ -1,5 +1,7 @@
-class Tarjeta {
-    constructor(x , y, images, type){
+class Tarjeta 
+{
+    constructor(x , y, images, type)
+    {
         this.x = x;
         this.y= y;
         this.images=images[type];
@@ -7,13 +9,18 @@ class Tarjeta {
         this.show=false;
     }
     
-    pintar () {
-        if (!this.show) {
-            fill(0);
-            rect(this.x, this.y, 50, 50);
-          } else {
-            image(this.images, this.x, this.y);
-          }
+    pintar () 
+    {
+        if (!this.show) 
+        {
+          fill(0);
+          rect(this.x, this.y, 50, 50);
+        } 
+        
+        else 
+        {
+          image(this.images, this.x, this.y);
+        }
   
     }
 }
