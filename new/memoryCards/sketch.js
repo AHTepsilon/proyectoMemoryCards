@@ -9,9 +9,9 @@ function preload()
 	let ind = 1;
 	for(let i = 0; i < 8; i++)
 	{
-		images[i] = loadImage("images/china" + ind + ".png");
+		images[i] = loadImage("images/japon" + ind + ".png");
 		ind++;
-	}
+	} 
 }
 
 function reset()
