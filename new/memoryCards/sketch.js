@@ -4,6 +4,9 @@ let cardOneRef = null;
 let cardTwoRef = null;
 let activated = true;
 
+let timerValue = 0;
+let timerValueMinutes = 0;
+
 function preload()
 {
 	let ind = 1;
@@ -39,17 +42,22 @@ function setup()
 {
 	createCanvas(310, 600);
 	reset();
+
+	setInterval(timeIt , 1000);
 }
 
 function draw()
 {
 	background(100);
+	console.log(mouseX + ", " + mouseY);
 
 	cards.forEach((card) => 
 	{
 		card.display();
 	});
 	validateSelectedCardsType();
+
+	timer();
 }
 
 function validateSelectedCardsType()
@@ -95,6 +103,31 @@ function resetSelectedCards()
 		cardTwoRef = null;
 		activated = true;
 	}, 400);
+}
+
+function timer()
+{
+	textSize(30);
+	textAlign(CENTER);
+
+	if(timerValue >= 10)
+	{
+		text(timerValueMinutes + ":" + timerValue, 145, 360);
+	}
+	if(timerValue < 10)
+	{
+		text(timerValueMinutes + ":0" + timerValue, 145, 360);
+	}
+	if(timerValue >= 60)
+	{
+		timerValue = 0;
+		timerValueMinutes++;
+	}
+}
+
+function timeIt()
+{
+	timerValue++;
 }
 
 function mousePressed()

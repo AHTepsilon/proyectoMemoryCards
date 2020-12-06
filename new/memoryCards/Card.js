@@ -19,7 +19,7 @@ class Card
                 stroke(0);
                 strokeWeight(3);
                 noFill();
-                square(this.x, this.y, 50);
+                circle(this.x + 25, this.y + 25, 50)
             }
             else
             {
